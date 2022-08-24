@@ -1,0 +1,31 @@
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  cursor: pointer;
+}
+
+.button-menu-mobile {
+  border: none;
+  color: #313a46;
+  height: 70px;
+  line-height: 70px;
+  width: 60px;
+  background-color: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  float: left;
+  z-index: 1;
+  position: relative;
+  margin-left: -24px;
+}
+
+.navbar-custom {
+  padding: 0 24px;
+  background-color: var(--bg-topbar);
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+  min-height: 70px;
+  position: fixed;
+  left: 260px;
+  top: 0;
+  right: 0;
+  z-index: 1001;
+}
