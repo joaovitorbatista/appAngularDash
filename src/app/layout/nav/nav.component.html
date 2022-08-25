@@ -1,5 +1,10 @@
 <a href="index.html" class="logo text-center logo-light">
+  <span class="logo-lg">
     <img src="assets/images/logo.png" alt="" height="45">
+  </span>
+  <span class="logo-sm">
+    <img src="assets/images/logo-sm.png" alt="" height="25">
+  </span>
 </a>
 
 <div class="leftside-menu-container h-100">
@@ -12,28 +17,28 @@
 
             <ul class="side-nav">
               <li class="side-nav-item">
-                <a [routerLink]="'/home'" class="side-nav-link">
+                <a [routerLink]="'/home'" class="side-nav-link" matTooltip="Home" matTooltipPosition="right">
                   <i class="fa-solid fa-house"></i>
                   <span> Home </span>
                 </a>
               </li>
               <li class="side-nav-item">
-                <a [routerLink]="'/sobre-nos'" class="side-nav-link">
+                <a [routerLink]="'/sobre-nos'" class="side-nav-link" matTooltip="Sobre nós" matTooltipPosition="right">
                   <i class="fa-solid fa-house"></i>
                   <span> Sobre nós </span>
                 </a>
               </li>
               <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarClientes" aria-expanded="false"
-                  aria-controls="sidebarClientes" class="side-nav-link collapsed">
+                  aria-controls="sidebarClientes" class="side-nav-link collapsed" matTooltip="Clientes" matTooltipPosition="right">
                   <i class="fa-solid fa-users"></i>
                   <span> Clientes </span>
-                  <span class="menu-arrow"></span>
+                  <i class="fa-solid fa-angle-right"></i>
                 </a>
                 <div class="collapse" id="sidebarClientes">
                   <ul class="side-nav-second-level">
                     <li>
-                      <a href="#">Novo cliente</a>
+                      <a [routerLink]="'/clientes/novo-cliente'">Novo cliente</a>
                     </li>
                     <li>
                       <a href="#">Ver cadastro</a>
@@ -42,25 +47,25 @@
                 </div>
               </li>
               <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="#" class="side-nav-link" matTooltip="Operacional" matTooltipPosition="right">
                   <i class="fa-solid fa-headset"></i>
                   <span> Operacional </span>
                 </a>
               </li>
               <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="#" class="side-nav-link" matTooltip="Comercial" matTooltipPosition="right">
                   <i class="fa-solid fa-briefcase"></i>
                   <span> Comercial </span>
                 </a>
               </li>
               <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="#" class="side-nav-link" matTooltip="Ranking" matTooltipPosition="right">
                   <i class="fa-solid fa-ranking-star"></i>
                   <span> Ranking </span>
                 </a>
               </li>
               <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="#" class="side-nav-link" matTooltip="Área Administrativa" matTooltipPosition="right">
                   <i class="fa-solid fa-user-tie"></i>
                   <span> Área Administrativa </span>
                 </a>

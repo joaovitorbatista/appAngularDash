@@ -10,59 +10,60 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  name = 'Angular ' + VERSION.major;
+  name = 'Angular versão ' + VERSION.major;
   constructor(private readonly title: Title, private readonly router: Router) {}
 
-  minhaPromise(nome: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-      if (nome === 'Joao') {
-        setTimeout(() => {
-          resolve('Seja bem vindo ' + nome);
-        }, 1000);
-      } else {
-        reject('Ops, você não é o Joao');
-      }
-    });
-  }
+  // minhaPromise(nome: string): Promise<string> {
+  //   return new Promise((resolve, reject) => {
+  //     if (nome === 'Joao') {
+  //       setTimeout(() => {
+  //         resolve('Seja bem vindo ' + nome);
+  //       }, 1000);
+  //     } else {
+  //       reject('Ops, você não é o Joao');
+  //     }
+  //   });
+  // }
 
-  minhaObservable(nome: string): Observable<string> {
-    return new Observable((subscriber) => {
-      if (nome === 'Joao') {
-        subscriber.next('Olá!' + nome);
-        subscriber.next('Olá de novo!' + nome);
-        setTimeout(() => {
-          subscriber.next('Resposta com delay!');
-        }, 1000);
-        subscriber.complete();
-      } else {
-        subscriber.error('Ops! Deu erro!');
-      }
-    });
-  }
+  // minhaObservable(nome: string): Observable<string> {
+  //   return new Observable((subscriber) => {
+  //     if (nome === 'Joao') {
+  //       subscriber.next('Olá!' + nome);
+  //       subscriber.next('Olá de novo!' + nome);
+  //       setTimeout(() => {
+  //         subscriber.next('Resposta com delay!');
+  //       }, 1000);
+  //       subscriber.complete();
+  //     } else {
+  //       subscriber.error('Ops! Deu erro!');
+  //     }
+  //   });
+  // }
 
   ngOnInit(): void {
     this.setupTitleListener();
+    console.log(this.name);
     // this.minhaPromise('Joao')
-    // .then(result => console.log(result));
+      // .then(result => console.log(result));
 
-    // this.minhaPromise('Vitor')
-    // .then(result => console.log(result))
-    // .catch(error => console.log(error))
+      // this.minhaPromise('Vitor')
+      // .then(result => console.log(result))
+      // .catch(error => console.log(error))
 
-    // this.minhaObservable('')
-    // .subscribe(
-    //   result => console.log(result),
-    //   erro => console.log(erro)
+      // this.minhaObservable('')
+      // .subscribe(
+      //   result => console.log(result),
+      //   erro => console.log(erro)
     // );
 
-    const observer = {
-      next: (valor) => console.log('Next:', valor),
-      error: (error) => console.log('Erro:', error),
-      complete: () => console.log('FIM'),
-    };
+    // const observer = {
+    //   next: (valor) => console.log('Next:', valor),
+    //   error: (error) => console.log('Erro:', error),
+    //   complete: () => console.log('FIM'),
+    // };
 
-    const obs = this.minhaObservable('Joao');
-    obs.subscribe(observer);
+    //const obs = this.minhaObservable('Joao');
+    //obs.subscribe(observer);
   }
 
   private setupTitleListener() {

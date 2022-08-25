@@ -17,15 +17,4 @@
   margin-left: -24px;
 }
 
-.navbar-custom {
-  padding: 0 24px;
-  background-color: var(--bg-topbar);
-  -webkit-box-shadow: var(--box-shadow);
-  box-shadow: var(--box-shadow);
-  min-height: 70px;
-  position: fixed;
-  left: 260px;
-  top: 0;
-  right: 0;
-  z-index: 1001;
-}
+

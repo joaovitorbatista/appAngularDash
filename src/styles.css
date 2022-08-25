@@ -11,6 +11,11 @@
   --bg-topbar: #fff;
 
   --page-title-color: #6c757d;
+
+  --dark-menu-item: #8391a2;
+  --dark-menu-item-hover: #bccee4;
+
+  --bg-leftbar-gradient: linear-gradient(135deg, #8f75da 0%, #727cf5 60%);
 }
 
 body {
@@ -31,6 +36,28 @@ a {
   text-decoration: none;
 }
 
+.text-muted {
+  --text-opacity: 1;
+  color: var(--text-muted) !important;
+}
+
+.fw-normal {
+  font-weight: 400 !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.h5, h5 {
+  font-size: .9375rem;
+}
+
 /*********************************************/
 
 .wrapper {
@@ -40,9 +67,7 @@ a {
 }
 
 /*****************************/
-
 .leftside-menu {
-  width: 260px;
   z-index: 10;
   background: var(--bg-leftbar);
   bottom: 0;
@@ -52,12 +77,101 @@ a {
   box-shadow: var(--box-shadow);
 }
 
-.leftside-menu .logo {
-  background: var(--bg-leftbar) !important;
+body.off .leftside-menu {
+  width: 260px;
 }
 
-.logo.logo-light {
+body.on .leftside-menu {
+  width: 70px;
+}
+
+/***************************/
+
+body.off span.logo-lg {
   display: block;
+}
+
+body.off span.logo-sm {
+  display: none;
+}
+
+body.on span.logo-lg {
+  display: none;
+}
+
+body.on span.logo-sm {
+  display: block !important;
+  text-align: left !important;
+  left: 15px;
+  position: relative;
+}
+
+/******************************/
+
+.content-page {
+  overflow: hidden;
+  padding: 70px 12px 65px;
+  min-height: 100vh;
+}
+
+body.off .content-page {
+  margin-left: 260px;
+}
+
+body.on .content-page {
+  margin-left: 70px;
+}
+
+/*******************************/
+
+body.off .navbar-custom {
+  padding: 0 24px;
+  background-color: var(--bg-topbar);
+  box-shadow: var(--box-shadow);
+  min-height: 70px;
+  position: fixed;
+  left: 260px;
+  top: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+body.on .navbar-custom {
+  padding: 0 24px;
+  background-color: var(--bg-topbar);
+  box-shadow: var(--box-shadow);
+  min-height: 70px;
+  position: fixed;
+  left: 70px;
+  top: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+/*******************************/
+body.off li.side-nav-item span {
+  display: inline-block;
+}
+
+body.on li.side-nav-item span {
+  display: none;
+}
+
+/*******************************/
+body.on .collapse.show .side-nav-second-level {
+  display: block !important;
+  left: 70px;
+  position: fixed;
+  width: 190px;
+  background: var(--bg-leftbar);
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+}
+
+/*******************************/
+
+.leftside-menu .logo {
+  background: var(--bg-leftbar) !important;
 }
 
 .logo {
@@ -89,10 +203,10 @@ a {
 
 .simplebar-wrapper {
   overflow: hidden;
-    width: inherit;
-    height: inherit;
-    max-width: inherit;
-    max-height: inherit;
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
 }
 
 .simplebar-mask {
@@ -105,16 +219,16 @@ a {
   top: 0;
   bottom: 0;
   right: 0;
-  width: auto!important;
-  height: auto!important;
+  width: auto !important;
+  height: auto !important;
   z-index: 0;
 }
 
 .simplebar-offset {
-  direction: inherit!important;
-  -webkit-box-sizing: inherit!important;
-  box-sizing: inherit!important;
-  resize: none!important;
+  direction: inherit !important;
+  -webkit-box-sizing: inherit !important;
+  box-sizing: inherit !important;
+  resize: none !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -127,8 +241,8 @@ a {
 
 .simplebar-content-wrapper {
   direction: inherit;
-  -webkit-box-sizing: border-box!important;
-  box-sizing: border-box!important;
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box !important;
   position: relative;
   display: block;
   height: 100%;
@@ -144,14 +258,69 @@ a {
   display: table;
 }
 
-/******************************/
-
-.content-page {
-  margin-left: 260px;
-  overflow: hidden;
-  padding: 70px 12px 65px;
-  min-height: 100vh;
+.tooltip {
+  position: absolute;
+  /* left: 70px !important; */
+  top: 20px !important;
 }
+
+/******* Cards ********/
+
+.widget-flat {
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  border: none;
+  -webkit-box-shadow: var(--card-box-shadow);
+  box-shadow: var(--card-box-shadow);
+  margin-bottom: 24px;
+}
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--card-bg);
+  background-clip: border-box;
+  border: 1px solid var(--card-border-color);
+  border-radius: 0.25rem;
+}
+
+.card-body {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.5rem 1.5rem;
+}
+
+.page-title-box .page-title {
+  font-size: 18px;
+  margin: 0;
+  line-height: 75px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--page-title-color);
+}
+
+.card .header-title {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  font-size: .9rem;
+  margin-top: 0;
+}
+
+/********************************/
 
 .header {
   padding: 0 24px;
@@ -166,6 +335,14 @@ a {
   z-index: 1001;
 }
 
+body.off .footer {
+  left: 260px;
+}
+
+body.on .footer {
+  left: 70px;
+}
+
 .footer {
   border-top: 1px solid rgba(152, 166, 173, .2);
   bottom: 0;
@@ -173,7 +350,6 @@ a {
   position: absolute;
   right: 0;
   color: #98a6ad;
-  left: 260px;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
@@ -186,6 +362,14 @@ a {
   list-style-type: none;
 }
 
+body.off .side-nav .side-nav-link {
+  padding: 10px 30px;
+}
+
+body.on .side-nav .side-nav-link {
+  padding:10px 23px;
+}
+
 .side-nav .side-nav-link {
   color: var(--menu-item);
 }
@@ -193,7 +377,6 @@ a {
 .side-nav .side-nav-link {
   color: var(--menu-item);
   display: block;
-  padding: 10px 30px;
   font-size: .9375rem;
   position: relative;
   -webkit-transition: all .4s;
@@ -216,6 +399,10 @@ a {
   width: 20px;
 }
 
+body.on .fa-solid.fa-angle-right {
+  display: none !important;
+}
+
 .side-nav .menu-arrow {
   -webkit-transition: -webkit-transform .15s;
   transition: -webkit-transform .15s;
@@ -235,3 +422,6 @@ a {
 .side-nav .side-nav-link span {
   vertical-align: middle;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
