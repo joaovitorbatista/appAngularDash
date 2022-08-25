@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { rootRouterConfig } from './app.routes';
+import { routes } from './app.routes';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './view/home/home.component';
 import { NavComponent } from './layout/nav/nav.component';
+import { SobreNosComponent } from './view/sobre-nos/sobre-nos.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NavComponent } from './layout/nav/nav.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    SobreNosComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +34,11 @@ import { NavComponent } from './layout/nav/nav.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
+    [RouterModule.forRoot(routes, {useHash: false})]
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
+    {provide: APP_BASE_HREF, useValue: '/'},
+    Title 
   ],
   bootstrap: [AppComponent]
 })
