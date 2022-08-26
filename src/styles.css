@@ -16,6 +16,14 @@
   --dark-menu-item-hover: #bccee4;
 
   --bg-leftbar-gradient: linear-gradient(135deg, #8f75da 0%, #727cf5 60%);
+
+  --table-color: #6c757d;
+  --table-border-color: #eef2f7;
+  --table-group-separator-color: #edeff1;
+
+  --cor-principal: #1abb9c;
+
+  --bs-primary-rgb: 13,110,253;
 }
 
 body {
@@ -423,5 +431,38 @@ body.on .fa-solid.fa-angle-right {
   vertical-align: middle;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/*************TABELAS*************/
+
+
+.table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  color: var(--table-color);
+  vertical-align: top;
+  border-color: var(--table-border-color);
+}
+
+.table-centered td, .table-centered th {
+  vertical-align: middle!important;
+}
+
+.table>:not(caption)>*>* {
+  padding: 0.95rem 0.95rem;
+  border-bottom-width: 1px;
+  -webkit-box-shadow: inset 0 0 0 9999px var(--table-accent-bg);
+  box-shadow: inset 0 0 0 9999px var(--table-accent-bg);
+}
+
+.table>:not(:first-child) {
+  border-top: 2px solid var(--ct-table-group-separator-color);
+}
+
+table.table-hover tbody tr:hover>*, table.table-hover thead tr:hover>* {
+  background-color: #f1f3fa;
+}
+
+.bg-primary {
+  background-color: var(--cor-principal)!important;
+}

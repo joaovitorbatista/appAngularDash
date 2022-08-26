@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
   public numberBody         : number;
   public currentClassIdx    : number;
   public bodyClass          : string;
-  // numberBody             : number;
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
