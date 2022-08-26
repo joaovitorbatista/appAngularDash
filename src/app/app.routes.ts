@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './view/home/home.component';
 import { SobreNosComponent } from './view/sobre-nos/sobre-nos.component';
 import { NovoClienteComponent } from './view/clientes/novo-cliente/novo-cliente.component';
+import { VerClientesComponent } from './view/clientes/ver-clientes/ver-clientes.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,6 +25,13 @@ export const routes: Routes = [
     component: NovoClienteComponent,
     data: {
       title: 'Novo Cliente'
+    },
+  },
+  {
+    path: 'clientes/ver-clientes',
+    component: VerClientesComponent,
+    data: {
+      title: 'Ver Clientes'
     },
   },
 ];

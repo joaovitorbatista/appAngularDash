@@ -21,6 +21,7 @@ import { HomeComponent } from './view/home/home.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { SobreNosComponent } from './view/sobre-nos/sobre-nos.component';
 import { NovoClienteComponent } from './view/clientes/novo-cliente/novo-cliente.component';
+import { VerClientesComponent } from './view/clientes/ver-clientes/ver-clientes.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NovoClienteComponent } from './view/clientes/novo-cliente/novo-cliente.
     NavComponent,
     SobreNosComponent,
     NovoClienteComponent,
+    VerClientesComponent,
   ],
   imports: [
     TooltipModule.forRoot(),
