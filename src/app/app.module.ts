@@ -15,6 +15,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { MaterialModule } from './material.module';
+
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './view/home/home.component';
@@ -23,6 +25,12 @@ import { SobreNosComponent } from './view/sobre-nos/sobre-nos.component';
 import { NovoClienteComponent } from './view/clientes/novo-cliente/novo-cliente.component';
 import { VerClientesComponent } from './view/clientes/ver-clientes/ver-clientes.component';
 import { UltimasVendasComponent } from './view/home/components/ultimas-vendas/ultimas-vendas.component';
+
+import { PokemonComponent } from './view/pokemon/pokemon.component';
+import { PokemonListComponent } from './view/pokemon/pokemon-list/pokemon-list.component';
+import { PokemonDetailsComponent } from './view/pokemon/pokemon-details/pokemon-details.component';
+
+import { PokemonService } from './view/pokemon/pokemon.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +43,8 @@ import { UltimasVendasComponent } from './view/home/components/ultimas-vendas/ul
     NovoClienteComponent,
     VerClientesComponent,
     UltimasVendasComponent,
+    PokemonListComponent,
+    PokemonDetailsComponent,
   ],
   imports: [
     TooltipModule.forRoot(),
@@ -45,9 +55,10 @@ import { UltimasVendasComponent } from './view/home/components/ultimas-vendas/ul
     BrowserAnimationsModule,
     MatSliderModule,
     MatTooltipModule,
+    MaterialModule,
     [RouterModule.forRoot(routes, { useHash: false })],
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }, Title],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }, Title, PokemonService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

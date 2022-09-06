@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <mat-card *ngFor="let poke of pokemon" class="mat-list-option"
+    routerLink="/pokemon/{{poke.id}}" (click)="selected.emit(poke.id) && opened.emit(poke.id)">
+    <mat-card-header>
+      <mat-card-title>
+        <h3>{{poke.name | uppercase}}</h3>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <h3>#{{poke.id}}</h3>
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
