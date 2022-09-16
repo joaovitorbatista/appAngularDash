@@ -1,13 +1,41 @@
-<div class="wrapper">
-  <mat-card *ngFor="let poke of pokemon" class="mat-list-option"
-    routerLink="/pokemon/{{poke.id}}" (click)="selected.emit(poke.id) && opened.emit(poke.id)">
-    <mat-card-header>
-      <mat-card-title>
-        <h3>{{poke.name | uppercase}}</h3>
-      </mat-card-title>
-      <mat-card-subtitle>
-        <h3>#{{poke.id}}</h3>
-      </mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
+<div class="container">
+  <form class="form-inline">
+    <input class="form-control" placeholder="Localize um pokemon..." name="entrada" [(ngModel)]="entrada" type="text"
+      #buscar>
+    <button class="btn btn-secondary" (click)="buscarPokemon(buscar.value)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+        viewBox="0 0 16 16">
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+      </svg>
+    </button>
+  </form>
+
+</div>
+<div class="cardPoke">
+  <div class="row">
+    <div class="col-sm-12 col-md-3" *ngFor="let poke of pokemons.reverse()">
+      <div class="card">
+        <div class="card-body">
+          <img [src]="poke.sprites.front_default">
+          <img [src]="poke.sprites.front_shiny">
+          <h2 class="card-title"><strong>{{poke.name}}</strong></h2>
+          <h3>
+            <strong>Tipo:</strong>
+            <p>{{poke.types[0].type.name}}</p>
+            <p>{{poke.types[1]?.type.name}}</p>
+          </h3>
+          <h3><strong>Movimentos:</strong></h3>
+          <div>
+            <p>{{poke.moves[0].move.name}}</p>
+            <p>{{poke.moves[1]?.move.name}}</p>
+          </div>
+          <div>
+            <p>{{poke.moves[2]?.move.name}}</p>
+            <p>{{poke.moves[3]?.move.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

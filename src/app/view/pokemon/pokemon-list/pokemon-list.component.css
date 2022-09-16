@@ -1,0 +1,14 @@
+.container {
+  margin-left: 10px;
+}
+
+.cardPoke {
+  margin: 0px;
+  min-height: calc(100vh - 380px - 38px);
+}
+
+.card {
+  margin: 0px 20px 20px 20px;
+  height: auto;
+  border: 2px solid gray;
+}

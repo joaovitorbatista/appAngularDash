@@ -1,32 +1,29 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
-import { Pokemon } from './pokemon.model';
-
-import { map } from 'rxjs/operators';
-
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class PokemonService {
-  baseUrl = 'https://pokeapi.co/api/v2';
-
+  private url = "https://pokeapi.co/api/v2";
   constructor(private http: HttpClient) {}
 
-  getPokemon() {
-    return this.http
-      .get<Pokemon[]>(`${this.baseUrl}/pokemon/?limit=949`)
-      .pipe(map(res => res.results.map(p => this.setPokemon(p))));
+  buscarPokemons(): Observable<any> {
+    return this.http.get<any>(this.url.concat(`/pokemon?limit=10`));
+  }
+  buscarPokemoNombre(value: string): Observable<any> {
+    return this.http.get<any>(this.url.concat(`/pokemon/${value}`));
   }
 
-  getPoke(id) {
-    return this.http
-      .get(`${this.baseUrl}/pokemon/${id}/`);
+  buscarTipo(value: string): Observable<any> {
+    return this.http.get<any>(value);
+  }
+  buscarPokemonsdirecao(value: string): Observable<any> {
+    return this.http.get<any>(value);
   }
 
-  private setPokemon(pokemon) {
-    if(!pokemon['id']) {
-      pokemon['id'] = pokemon.url.match(/\/(\d+)/)[1];
-    }
-    return pokemon
+  buscarPoderesPokemons(value: string): Observable<any> {
+    return this.http.get<any>(value);
   }
-
 }
