@@ -10,8 +10,8 @@ import Swal from 'sweetalert2';
 })
 export class PokemonListComponent {
   public pokemons: any[] = [];
-  public direcaoAnterior: String = '';
-  public direcaoSeguinte: String = '';
+  public direcaoAnterior: string | null;
+  public direcaoSeguinte: string | null;
   public contador = 1;
   public seguinte = true;
   public atras = false;

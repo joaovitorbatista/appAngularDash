@@ -35,9 +35,9 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
       this.innerWidth = window.innerWidth;
       const numberBody = this.numberBody;
-      console.log(this.innerWidth);
-      console.log(this.bodyClass);
-      console.log(this.currentClassIdx + " body");
+      //console.log(this.innerWidth);
+      //console.log(this.bodyClass);
+      //console.log(this.currentClassIdx + " body");
     }
 
 
