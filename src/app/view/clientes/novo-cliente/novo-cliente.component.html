@@ -11,41 +11,29 @@
     <div class="col-sm-12">
       <div class="card widget-flat">
         <div class="card-body">
-          <form class="row g-3 align-items-center">
+          <form novalidate (ngSubmit)="adicionarCliente()" [formGroup]="cadastroForm" class="row g-3 align-items-center">
             <div class="col-4">
               <div class="form-floating mb-3">
-                <input
-                  type="login"
-                  class="form-control"
-                  id="login"
-                  placeholder="89487"
-                />
-                <label for="floatingInput">Login sistema</label>
+                <input type="login" class="form-control" id="fantasia" formControlName='fantasia'/>
+                <label for="floatingInput">Fantasia</label>
               </div>
             </div>
 
             <div class="col-4">
               <div class="form-floating mb-3">
-                <input
-                  type="login"
-                  class="form-control"
-                  id="login"
-                  placeholder="89487"
-                />
-                <label for="floatingInput">Login sistema</label>
+                <input type="login" class="form-control" id="razao" formControlName='razao'/>
+                <label for="floatingInput">Razão Social</label>
               </div>
             </div>
 
             <div class="col-4">
               <div class="form-floating mb-3">
-                <input
-                  type="login"
-                  class="form-control"
-                  id="login"
-                  placeholder="89487"
-                />
-                <label for="floatingInput">Login sistema</label>
+                <input type="login" class="form-control" id="cnpj" formControlName='cnpj'/>
+                <label for="floatingInput">CNPJ</label>
               </div>
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-success" id="registrar">Registar</button>
             </div>
           </form>
         </div>

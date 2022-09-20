@@ -49,23 +49,23 @@ export class AppComponent implements OnInit {
         setTimeout(() => {
           subscriber.next(usuario);
         }, 1000);
-        
+
         setTimeout(() => {
           subscriber.next(usuario);
         }, 2000);
-        
+
         setTimeout(() => {
           subscriber.next(usuario);
         }, 3000);
-        
+
         setTimeout(() => {
           subscriber.next(usuario);
         }, 4000);
-        
+
         setTimeout(() => {
           subscriber.complete();
         }, 5000);
-        
+
       } else {
         subscriber.error('Ops! Deu erro!');
       }
@@ -96,9 +96,21 @@ export class AppComponent implements OnInit {
 
     // const obs = this.minhaObservable('Joao');
     // obs.subscribe(observer);
-    
+
     const obs = this.usuarioObservable('Admin', 'adm@adm.com');
-    obs.subscribe(observer);
+    const subs = obs.subscribe(observer);
+    //obs.subscribe(observer);
+
+    setTimeout(() => {
+      subs.unsubscribe();
+      console.log('Conexão fechada: ' + subs.closed)
+    }, 3500);
+
+
+  }
+
+  escrever(texto:string){
+    console.log(texto);
   }
 
   private setupTitleListener() {
