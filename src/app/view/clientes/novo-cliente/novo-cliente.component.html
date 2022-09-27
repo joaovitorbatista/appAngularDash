@@ -11,29 +11,72 @@
     <div class="col-sm-12">
       <div class="card widget-flat">
         <div class="card-body">
-          <form novalidate (ngSubmit)="adicionarCliente()" [formGroup]="cadastroForm" class="row g-3 align-items-center">
-            <div class="col-4">
+          <form novalidate (ngSubmit)="adicionarCliente()" [formGroup]="cadastroForm"
+            class="row g-3 align-items-center">
+            <div class="col-3">
               <div class="form-floating mb-3">
-                <input type="login" class="form-control" id="fantasia" formControlName='fantasia'/>
+                <input type="text" class="form-control" id="fantasia" formControlName='fantasia' [ngClass]="{'is-invalid': displayMessage.fantasia}" />
                 <label for="floatingInput">Fantasia</label>
+                <span class="text-danger" *ngIf="displayMessage.fantasia">
+                  <p [innerText]="displayMessage.fantasia"></p>
+                </span>
               </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-3">
               <div class="form-floating mb-3">
-                <input type="login" class="form-control" id="razao" formControlName='razao'/>
+                <input type="text" class="form-control" id="razao" formControlName='razao' [ngClass]="{'is-invalid': displayMessage.razao}" />
                 <label for="floatingInput">Razão Social</label>
+                <span class="text-danger" *ngIf="displayMessage.razao">
+                  <p [innerText]="displayMessage.razao"></p>
+                </span>
               </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-3">
               <div class="form-floating mb-3">
-                <input type="login" class="form-control" id="cnpj" formControlName='cnpj'/>
+                <input type="text" class="form-control" id="cnpj" formControlName='cnpj' cnpj [textMask]="{mask: MASKS.cnpj.textMask}">
                 <label for="floatingInput">CNPJ</label>
+                <span class="text-danger" *ngIf="cadastroForm.get('cnpj').errors && (cadastroForm.get('cnpj').dirty || cadastroForm.get('cnpj').touched)">
+                  <p>CNPJ inválido</p>
+                </span>
               </div>
             </div>
-            <div class="col-4">
-              <button type="submit" class="btn btn-success" id="registrar">Registar</button>
+            <div class="col-3">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="email" formControlName='email' [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)}"/>
+                <label for="floatingInput">email</label>
+                <span class="text-danger" *ngIf="cadastroForm.get('email').errors?.['required'] && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
+                  <p>Preencha o campo email</p>
+                </span>
+                <span class="text-danger" *ngIf="cadastroForm.get('email').errors?.['email'] && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
+                  <p>E-mail em formato invalido</p>
+                </span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="senha" formControlName='senha' [ngClass]="{'is-invalid': cadastroForm.get('senha').errors && (cadastroForm.get('senha').dirty || cadastroForm.get('senha').touched)}"/>
+                <label for="floatingInput">senha</label>
+                <span class="text-danger" *ngIf="cadastroForm.get('senha').errors?.['rangeLength'] && (cadastroForm.get('senha').dirty || cadastroForm.get('senha').touched)">
+                  <p>Tamanho inválido</p>
+                </span>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="senhaConfirmacao" formControlName='senhaConfirmacao' [ngClass]="{'is-invalid': cadastroForm.get('senhaConfirmacao').errors && (cadastroForm.get('senhaConfirmacao').dirty || cadastroForm.get('senhaConfirmacao').touched)}"/>
+                <label for="floatingInput">senhaConfirmacao</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <p>Formulário válido: {{ cadastroForm.valid }} </p>
+              <p>Formulário tocado: {{ cadastroForm.touched }}</p>
+              <p>Formulário sujo: {{ cadastroForm.dirty }}</p>
+              <p>Formulário: {{ formResult }}</p>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-success" id="registrar" [disabled]="!cadastroForm.valid">Registar</button>
             </div>
           </form>
         </div>

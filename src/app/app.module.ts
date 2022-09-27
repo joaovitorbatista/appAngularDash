@@ -15,6 +15,10 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { NgBrazil } from 'ng-brazil'
+import { TextMaskModule } from 'angular2-text-mask';
+import { CustomFormsModule } from 'ng2-validation'
+
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './view/home/home.component';
@@ -24,7 +28,6 @@ import { NovoClienteComponent } from './view/clientes/novo-cliente/novo-cliente.
 import { VerClientesComponent } from './view/clientes/ver-clientes/ver-clientes.component';
 import { UltimasVendasComponent } from './view/home/components/ultimas-vendas/ultimas-vendas.component';
 
-import { PokemonComponent } from './view/pokemon/pokemon.component';
 import { PokemonListComponent } from './view/pokemon/pokemon-list/pokemon-list.component';
 
 import { PokemonService } from './view/pokemon/pokemon.service';
@@ -52,7 +55,10 @@ import { PokemonService } from './view/pokemon/pokemon.service';
     BrowserAnimationsModule,
     MatSliderModule,
     MatTooltipModule,
-    [RouterModule.forRoot(routes, { useHash: false })],
+    TextMaskModule,
+    NgBrazil,
+    CustomFormsModule,
+    [RouterModule.forRoot(routes, { useHash: false })]
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }, Title, PokemonService],
   bootstrap: [AppComponent],
